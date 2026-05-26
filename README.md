@@ -1,80 +1,61 @@
-<header>
+# Clasificación Multiclase de Animales a partir de Imágenes
 
-<!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
--->
+Este repositorio documenta y provee una línea base para resolver una tarea de **clasificación multiclase** de animales con aprendizaje profundo.
 
-# Introduction to GitHub
+## Definición
 
-_Get started using GitHub in less than an hour._
+La clasificación multiclase asigna **una única etiqueta** por imagen, donde cada etiqueta representa una especie o categoría de animal (por ejemplo: `perro`, `gato`, `elefante`, `tigre`).
 
-</header>
+## Características principales
 
-<!--
-  <<< Author notes: Course start >>>
-  Include start button, a note about Actions minutes,
-  and tell the learner why they should take the course.
--->
+- **Entrada:** imágenes digitales de animales.
+- **Salida:** una clase única por imagen.
+- **Número de clases:** desde pocas categorías hasta cientos o miles.
 
-## Welcome
+## Arquitectura base implementada
 
-People use GitHub to build some of the most advanced technologies in the world. Whether you’re visualizing data or building a new game, there’s a whole community and set of tools on GitHub that can help you do it even better. GitHub Skills’ “Introduction to GitHub” course guides you through everything you need to start contributing in less than an hour.
+La implementación en `src/modelo_multiclase_animales.py` incluye:
 
-- **Who is this for**: New developers, new GitHub users, and students.
-- **What you'll learn**: We'll introduce repositories, branches, commits, and pull requests.
-- **What you'll build**: We'll make a short Markdown file you can use as your [profile README](https://docs.github.com/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme).
-- **Prerequisites**: None. This course is a great introduction for your first day on GitHub.
-- **How long**: This course takes less than one hour to complete.
+1. **Preprocesamiento**
+   - Redimensionado de imágenes.
+   - Normalización de píxeles a `[0, 1]`.
+   - Aumento de datos (volteo horizontal, rotación y contraste).
+2. **Extracción de características (CNN)**
+   - `Conv2D(32) + MaxPooling2D`
+   - `Conv2D(64) + MaxPooling2D`
+3. **Capas finales**
+   - `Flatten`
+   - `Dense(128, relu)`
+   - `Dense(num_clases, softmax)`
+4. **Entrenamiento**
+   - Optimizador: `adam`
+   - Pérdida: `categorical_crossentropy`
+   - Métricas: `accuracy`, `precision`, `recall`, `top_3_accuracy`
 
-In this course, you will:
+## Retos típicos de este problema
 
-1. Create a branch
-2. Commit a file
-3. Open a pull request
-4. Merge your pull request
+- Alta similitud entre clases.
+- Gran variabilidad dentro de la misma clase.
+- Oclusiones y fondos complejos.
+- Desequilibrio de clases.
 
-### How to start this course
+## Métricas de evaluación recomendadas
 
-1. Scroll to the top of the page and click the down arrow next to the Fork button. Then click 'Create a new fork' to fork this repository.
+- Accuracy.
+- Precision, Recall y F1-score (por clase y promedios macro/micro).
+- Matriz de confusión.
+- Top-k accuracy.
 
-2. Right-click **Start course** and open the link in a new tab.
-   
-<!-- For start course, run in JavaScript:
-'https://github.com/new?' + new URLSearchParams({
-  template_owner: 'skills',
-  template_name: 'introduction-to-github',
-  owner: '@me',
-  name: 'skills-introduction-to-github',
-  description: 'My clone repository',
-  visibility: 'public',
-}).toString()
--->
+## Uso rápido
 
-[![start-course](https://user-images.githubusercontent.com/1221423/235727646-4a590299-ffe5-480d-8cd5-8194ea184546.svg)](https://github.com/new?template_owner=skills&template_name=introduction-to-github&owner=%40me&name=skills-introduction-to-github&description=My+clone+repository&visibility=public)
+```bash
+python src/modelo_multiclase_animales.py \
+  --train-dir /ruta/train \
+  --val-dir /ruta/val \
+  --test-dir /ruta/test \
+  --epochs 10 \
+  --batch-size 32 \
+  --img-size 224
+```
 
-
-
-3. In the new tab, most of the prompts will automatically fill in for you.
-   - For owner, choose your personal account or an organization to host the repository.
-   - We recommend creating a public repository, as private repositories will [use Actions minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
-   - Scroll down and click the **Create repository** button at the bottom of the form.
-
-4. After your new repository is created, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
-
-<footer>
-
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
-
----
-
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/introduction-to-github) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
-
-&copy; 2024 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
-
-</footer>
+> Las carpetas deben organizarse por clase (formato compatible con `image_dataset_from_directory` de TensorFlow/Keras).
