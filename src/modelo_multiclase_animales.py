@@ -81,13 +81,15 @@ def cargar_datasets(
 
 
 def matriz_confusion(modelo: tf.keras.Model, test_ds: tf.data.Dataset) -> tf.Tensor:
-    y_true = []
-    y_pred = []
+    y_true_batches = []
+    y_pred_batches = []
     for x_batch, y_batch in test_ds:
         predicciones = modelo(x_batch, training=False)
-        y_true.extend(tf.argmax(y_batch, axis=1).numpy())
-        y_pred.extend(tf.argmax(predicciones, axis=1).numpy())
+        y_true_batches.append(tf.argmax(y_batch, axis=1))
+        y_pred_batches.append(tf.argmax(predicciones, axis=1))
 
+    y_true = tf.concat(y_true_batches, axis=0)
+    y_pred = tf.concat(y_pred_batches, axis=0)
     return tf.math.confusion_matrix(y_true, y_pred)
 
 
