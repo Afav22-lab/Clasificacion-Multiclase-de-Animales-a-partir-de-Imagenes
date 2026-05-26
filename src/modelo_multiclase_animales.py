@@ -62,14 +62,14 @@ def cargar_datasets(
     img_size: int,
     batch_size: int,
 ) -> tuple[tf.data.Dataset, tf.data.Dataset, list[str]]:
-    train_ds = tf.keras.preprocessing.image_dataset_from_directory(
+    train_ds = tf.keras.utils.image_dataset_from_directory(
         train_dir,
         image_size=(img_size, img_size),
         batch_size=batch_size,
         label_mode="categorical",
         shuffle=True,
     )
-    val_ds = tf.keras.preprocessing.image_dataset_from_directory(
+    val_ds = tf.keras.utils.image_dataset_from_directory(
         val_dir,
         image_size=(img_size, img_size),
         batch_size=batch_size,
@@ -84,7 +84,7 @@ def matriz_confusion(modelo: tf.keras.Model, test_ds: tf.data.Dataset) -> tf.Ten
     y_true = []
     y_pred = []
     for x_batch, y_batch in test_ds:
-        predicciones = modelo.predict(x_batch, verbose=0)
+        predicciones = modelo(x_batch, training=False)
         y_true.extend(tf.argmax(y_batch, axis=1).numpy())
         y_pred.extend(tf.argmax(predicciones, axis=1).numpy())
 
@@ -114,7 +114,7 @@ def main() -> None:
     print("Métricas de validación:", dict(zip(modelo.metrics_names, metricas)))
 
     if args.test_dir:
-        test_ds = tf.keras.preprocessing.image_dataset_from_directory(
+        test_ds = tf.keras.utils.image_dataset_from_directory(
             args.test_dir,
             image_size=(args.img_size, args.img_size),
             batch_size=args.batch_size,
