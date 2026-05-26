@@ -8,10 +8,11 @@ import tensorflow as tf
 
 
 AUTOTUNE = tf.data.AUTOTUNE
+DEFAULT_TOP_K = 3
 
 
 def construir_modelo(num_clases: int, img_size: int) -> tf.keras.Model:
-    top_k = min(3, num_clases)
+    top_k = min(DEFAULT_TOP_K, num_clases)
     modelo = tf.keras.Sequential(
         [
             tf.keras.layers.Conv2D(32, (3, 3), activation="relu", input_shape=(img_size, img_size, 3)),

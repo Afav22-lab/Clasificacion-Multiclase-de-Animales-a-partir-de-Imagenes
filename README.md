@@ -30,7 +30,7 @@ La implementación en `src/modelo_multiclase_animales.py` incluye:
 4. **Entrenamiento**
    - Optimizador: `adam`
    - Pérdida: `categorical_crossentropy`
-   - Métricas: `accuracy`, `precision`, `recall`, `top_3_accuracy`
+   - Métricas: `accuracy`, `precision`, `recall`, `top-k accuracy` (k adaptable hasta 3 según el número de clases)
 
 ## Retos típicos de este problema
 
