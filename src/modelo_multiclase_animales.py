@@ -11,6 +11,7 @@ AUTOTUNE = tf.data.AUTOTUNE
 
 
 def construir_modelo(num_clases: int, img_size: int) -> tf.keras.Model:
+    top_k = min(3, num_clases)
     modelo = tf.keras.Sequential(
         [
             tf.keras.layers.Conv2D(32, (3, 3), activation="relu", input_shape=(img_size, img_size, 3)),
@@ -30,7 +31,7 @@ def construir_modelo(num_clases: int, img_size: int) -> tf.keras.Model:
             "accuracy",
             tf.keras.metrics.Precision(name="precision"),
             tf.keras.metrics.Recall(name="recall"),
-            tf.keras.metrics.TopKCategoricalAccuracy(k=3, name="top_3_accuracy"),
+            tf.keras.metrics.TopKCategoricalAccuracy(k=top_k, name=f"top_{top_k}_accuracy"),
         ],
     )
     return modelo
@@ -124,7 +125,8 @@ def main() -> None:
             shuffle=False,
         )
         test_ds = _pipeline_dataset(test_ds, augment=False)
-        print("Matriz de confusión:")
+        print("Matriz de confusión (filas=clase real, columnas=clase predicha):")
+        print("Orden de clases:", class_names)
         print(matriz_confusion(modelo, test_ds).numpy())
 
 
