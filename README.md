@@ -1,4 +1,8 @@
-# 🐾 Clasificación Multiclase de Animales a partir de Imágenes
+# Clasificación Multiclase de Animales a partir de Imágenes
+
+<p align="center">
+  <img src="images/animales.png" alt="Banner Animales" width="100%" />
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" />
@@ -14,13 +18,13 @@
 
 ---
 
-## 📖 Descripción
+## Descripción
 
 Este proyecto aborda el problema de **clasificación multiclase de imágenes** utilizando el dataset **Animals with Attributes 2 (AwA2)**, que contiene más de 37,000 imágenes distribuidas en 50 clases de animales.
 
 El objetivo es explorar, implementar y comparar múltiples enfoques de aprendizaje automático — desde modelos clásicos de Machine Learning hasta arquitecturas de Deep Learning y técnicas de aprendizaje no supervisado — para evaluar su rendimiento en un problema de alta complejidad.
 
-## 🎯 Objetivos
+## Objetivos
 
 - Preprocesar y normalizar un dataset de imágenes para su uso en modelos de ML/DL
 - Implementar y evaluar modelos clásicos: **Decision Tree**, **Random Forest** y **SVM**
@@ -28,7 +32,7 @@ El objetivo es explorar, implementar y comparar múltiples enfoques de aprendiza
 - Aplicar técnicas de **aprendizaje no supervisado**: PCA, K-Means y DBSCAN
 - Comparar el rendimiento de todos los modelos y extraer conclusiones
 
-## 📂 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 📦 Clasificacion-Multiclase-de-Animales-a-partir-de-Imagenes/
@@ -41,7 +45,7 @@ El objetivo es explorar, implementar y comparar múltiples enfoques de aprendiza
     └── clustering_resultados.png
 ```
 
-## 🗃️ Dataset
+## Dataset
 
 | Característica | Detalle |
 |---|---|
@@ -55,7 +59,7 @@ El objetivo es explorar, implementar y comparar múltiples enfoques de aprendiza
 ### Ejemplos de clases incluidas:
 `lion`, `dolphin`, `horse`, `elephant`, `hummingbird`, `ox`, `tiger`, `wolf`, `zebra`, `giraffe`, entre otras.
 
-## ⚙️ Preprocesamiento
+## Preprocesamiento
 
 1. **Descarga automática** del dataset desde Kaggle usando `kagglehub`
 2. **Muestreo aleatorio** de 5,000 imágenes (reproducible con `random.seed(42)`)
@@ -64,7 +68,7 @@ El objetivo es explorar, implementar y comparar múltiples enfoques de aprendiza
 5. **Normalización** de valores de píxeles al rango [0, 1]
 6. **Particionado** 80% entrenamiento / 20% prueba con shuffle
 
-## 🔬 Análisis Exploratorio
+## Análisis Exploratorio
 
 Se realizaron las siguientes visualizaciones estadísticas:
 
@@ -73,7 +77,7 @@ Se realizaron las siguientes visualizaciones estadísticas:
 - **Imagen de desviación estándar** (variabilidad entre imágenes)
 - **Distribución de promedios** e intensidades por imagen
 
-## 🤖 Modelos Implementados
+## Modelos Implementados
 
 ### Parte 1: Machine Learning Clásico
 
@@ -83,14 +87,14 @@ Se realizaron las siguientes visualizaciones estadísticas:
 | Random Forest | **8.90%** |
 | SVM (kernel lineal) | 7.00% |
 | SVM (kernel polinomial) | 7.30% |
-| SVM (kernel RBF) | **10.20%** ⭐ |
+| SVM (kernel RBF) | **10.20%** |
 
 ### Parte 2: Deep Learning (MLP con Keras)
 
 | Arquitectura | Capas | Accuracy |
 |---|---|---|
 | Arq1 | Dense(64) → Dense(128) → Dense(128) | 5.30% |
-| Arq2 | Dense(64) → Dense(64) → Dense(128) → Dense(128) → Dense(256) → Dense(256) | **8.80%** ⭐ |
+| Arq2 | Dense(64) → Dense(64) → Dense(128) → Dense(128) → Dense(256) → Dense(256) | **8.80%** |
 | Arq3 | 10 × Dense(128) | 7.00% |
 
 > **Configuración:** Optimizador Adam, loss: sparse_categorical_crossentropy, 50 épocas, activación ReLU
@@ -103,12 +107,12 @@ Se realizaron las siguientes visualizaciones estadísticas:
 | **K-Means** (k=50) | Silhouette Score: 0.3219 |
 | **DBSCAN** (eps=0.3, min_samples=10) | 36 clusters, Silhouette Score: 0.5493, 89.6% ruido |
 
-## 📊 Resultados
+## Resultados
 
 ### Comparativa General de Modelos
 
 ```
-SVM (RBF)     ████████████████████  10.20%  ⭐ Mejor modelo
+SVM (RBF)     ████████████████████  10.20%  Mejor modelo
 Random Forest ██████████████████    8.90%
 DL Arq2       █████████████████     8.80%
 SVM (poly)    ██████████████        7.30%
@@ -125,7 +129,7 @@ DL Arq1       ██████████            5.30%
 - **DBSCAN** obtuvo mejor Silhouette Score (0.5493) que K-Means (0.3219), pero a costa de clasificar el 89.6% como ruido
 - PCA con solo 2 componentes captura el 36.32% de la varianza total
 
-## 🚀 Cómo Ejecutar
+## Cómo Ejecutar
 
 ### Opción 1: Google Colab (Recomendado)
 1. Abre el archivo `Proyecto_IA_.ipynb` en Google Colab
@@ -157,7 +161,7 @@ kagglehub
 tqdm
 ```
 
-## 📝 Conclusiones
+## Conclusiones
 
 1. **La clasificación multiclase con 50 clases es un problema complejo** que requiere representaciones más sofisticadas que los píxeles en bruto en escala de grises.
 
@@ -167,7 +171,7 @@ tqdm
 
 4. **El análisis no supervisado reveló** que las imágenes de animales en escala de grises forman clusters con solapamiento considerable, lo que explica la dificultad de clasificación.
 
-## 🔮 Trabajo Futuro
+## Trabajo Futuro
 
 - [ ] Implementar **Redes Neuronales Convolucionales (CNN)**
 - [ ] Utilizar imágenes en **color (RGB)** y mayor resolución
@@ -176,7 +180,7 @@ tqdm
 - [ ] Aumentar el tamaño de la muestra de entrenamiento
 - [ ] Explorar técnicas de reducción de dimensionalidad más avanzadas (t-SNE, UMAP)
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" height="30"/>
@@ -190,11 +194,11 @@ tqdm
   <img src="https://img.shields.io/badge/Google%20Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white" height="30"/>
 </p>
 
-## 👥 Autores
+## Autores
 
 - **Andrés Felipe Alfonso Viviescas** — [GitHub](https://github.com/Afav22-lab)
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto es de uso académico y está disponible bajo la licencia MIT.
 
