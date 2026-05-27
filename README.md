@@ -21,14 +21,6 @@ Este proyecto aborda el problema de **clasificación multiclase de imágenes** u
 
 El objetivo es explorar, implementar y comparar múltiples enfoques de aprendizaje automático — desde modelos clásicos de Machine Learning hasta arquitecturas de Deep Learning y técnicas de aprendizaje no supervisado — para evaluar su rendimiento en un problema de alta complejidad.
 
-## Video Presentación
-
-<p align="center">
-  <a href="https://youtu.be/91J58u7M-MQ">
-    <img src="https://img.youtube.com/vi/91J58u7M-MQ/0.jpg" alt="Video Presentación" width="80%">
-  </a>
-</p>
-
 ## Objetivos
 
 - Preprocesar y normalizar un dataset de imágenes para su uso en modelos de ML/DL
@@ -137,7 +129,7 @@ DL Arq1       ██████████            5.30%
 ## Cómo Ejecutar
 
 ### Opción 1: Google Colab (Recomendado)
-1. Abre el [Notebook en Google Colab](https://colab.research.google.com/drive/1INuWJYF70w4ftXeVLmetnab6NKbJi96M?usp=sharing)
+1. Abre el archivo `Proyecto_IA_.ipynb` en Google Colab
 2. Ejecuta todas las celdas secuencialmente
 3. El dataset se descarga automáticamente desde Kaggle
 
@@ -191,6 +183,11 @@ tqdm
   <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white" height="30"/>
   <img src="https://img.shields.io/badge/Google%20Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white" height="30"/>
 </p>
+
+## Recursos
+
+- **Video Presentación:** [https://youtu.be/91J58u7M-MQ](https://youtu.be/91J58u7M-MQ)
+- **Notebook en Google Colab:** [https://colab.research.google.com/drive/1INuWJYF70w4ftXeVLmetnab6NKbJi96M?usp=sharing](https://colab.research.google.com/drive/1INuWJYF70w4ftXeVLmetnab6NKbJi96M?usp=sharing)
 
 ## Autores
 
