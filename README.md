@@ -186,6 +186,7 @@ tqdm
 
 ## Recursos
 
+- **Documento del Proyecto:** [Ver Documento PDF](documentos/Clasificacion_Multiclase_Animales.pdf)
 - **Video Presentación:** [https://youtu.be/91J58u7M-MQ](https://youtu.be/91J58u7M-MQ)
 - **Notebook en Google Colab:** [https://colab.research.google.com/drive/1INuWJYF70w4ftXeVLmetnab6NKbJi96M?usp=sharing](https://colab.research.google.com/drive/1INuWJYF70w4ftXeVLmetnab6NKbJi96M?usp=sharing)
 
