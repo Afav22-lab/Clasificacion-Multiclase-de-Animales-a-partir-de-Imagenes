@@ -12,9 +12,6 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
 </p>
 
-<p align="center">
-  <em>Proyecto de Inteligencia Artificial — Comparación de técnicas de Machine Learning y Deep Learning para la clasificación de imágenes de animales en 50 categorías</em>
-</p>
 
 ---
 
@@ -35,10 +32,10 @@ El objetivo es explorar, implementar y comparar múltiples enfoques de aprendiza
 ## Estructura del Proyecto
 
 ```
-📦 Clasificacion-Multiclase-de-Animales-a-partir-de-Imagenes/
-├── 📓 Proyecto_IA_.ipynb        # Notebook principal con todo el código
-├── 📄 README.md                  # Este archivo
-└── 📊 resultados/                # Gráficas generadas (se crean al ejecutar)
+ Clasificacion-Multiclase-de-Animales-a-partir-de-Imagenes/
+├──  Proyecto_IA_.ipynb        # Notebook principal con todo el código
+├──  README.md                  # Este archivo
+└──  resultados/                # Gráficas generadas (se crean al ejecutar)
     ├── comparativa_svm_interna.png
     ├── grafica.png
     ├── demostracion_visual.png
@@ -171,14 +168,7 @@ tqdm
 
 4. **El análisis no supervisado reveló** que las imágenes de animales en escala de grises forman clusters con solapamiento considerable, lo que explica la dificultad de clasificación.
 
-## Trabajo Futuro
 
-- [ ] Implementar **Redes Neuronales Convolucionales (CNN)**
-- [ ] Utilizar imágenes en **color (RGB)** y mayor resolución
-- [ ] Aplicar **Transfer Learning** con modelos preentrenados (ResNet, VGG, EfficientNet)
-- [ ] Implementar **Data Augmentation** para mejorar la generalización
-- [ ] Aumentar el tamaño de la muestra de entrenamiento
-- [ ] Explorar técnicas de reducción de dimensionalidad más avanzadas (t-SNE, UMAP)
 
 ## Tecnologías Utilizadas
 
@@ -198,11 +188,6 @@ tqdm
 
 - **Andrés Felipe Alfonso Viviescas** — [GitHub](https://github.com/Afav22-lab)
 
-## Licencia
-
-Este proyecto es de uso académico y está disponible bajo la licencia MIT.
-
----
 
 <p align="center">
   <strong>Universidad Industrial de Santander (UIS) — 2026</strong>
